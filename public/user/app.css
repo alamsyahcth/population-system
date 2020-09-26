@@ -1,0 +1,108 @@
+td{
+  vertical-align: middle !important;
+}
+.btn{
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.btn-outline-primary:hover{
+  color: #ffffff !important;
+}
+.badge{
+  color: #ffffff !important;
+  border-radius: 50px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+thead th{
+  font-weight: 700 !important;
+}
+.card{
+  border: none !important;
+}
+.nav-link{
+  padding: 12px !important;
+  border-radius: 10px !important;
+  color: #ffffff !important;
+}
+.nav-link:hover{
+  background-color: #15229c !important;
+}
+.nav-link-active{
+  background-color: #15229c !important;
+}
+.nav-item{
+  border: none !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+.nav-link-account:hover{
+  background-color: #f1f1f6 !important;
+}
+
+.text-primary-2 {
+  color: #0033c4 !important;
+}
+
+.btn-primary{
+  background-color: #0033c4 !important;
+  border: #0033c4 2px solid !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+.btn-primary:hover{
+  background-color: #ffffff !important;
+  color: #0033c4 !important;
+  border: #0033c4 2px solid !important;
+}
+.btn-outline-primary{
+  background-color: #ffffff !important;
+  border: #0033c4 2px solid !important;
+  color: #0033c4 !important;
+  font-weight: 700 !important;
+}
+.btn-outline-primary:hover{
+  background-color: #ffffff !important;
+  color: #0033c4 !important;
+  border: #0033c4 2px solid !important;
+}
+
+.form-control{
+  background-color: none !important;
+  border: none !important;
+  border-bottom: #b5b5b5 1px solid !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+.form-control:focus{
+  background-color: none !important;
+  border: none !important;
+  border-bottom: #0033c4 2px solid !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+::-webkit-input-placeholder { /* Edge */
+  color: #e4e4e4 !important;
+}
+
+:-ms-input-placeholder { /* Internet Explorer */
+  color: #e4e4e4 !important;
+}
+
+::placeholder {
+  color: #e4e4e4 !important;
+}
+
+.card-hover:hover{
+  -webkit-box-shadow: 0px 0px 34px -14px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 0px 34px -14px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 34px -14px rgba(0,0,0,0.4);
+}
+a{
+  color: #000000 !important;
+}
+a:hover{
+  text-decoration: none !important;
+}

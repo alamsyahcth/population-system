@@ -1,0 +1,27 @@
+.nav-header{
+  font-weight: 700;
+  color: #ffffff7c !important;
+  margin-top: 10px;
+}
+.brand-text{
+  color: #ffffff;
+  font-weight: 700;
+}
+.btn{
+  border-radius: 10px;
+}
+.btn-secondary{
+  background-color: #e9e9e9;
+  color: #7e7e7e;
+  border: none;
+}
+.btn-secondary:hover{
+  background-color: #cfcfcf;
+  color: #5d5d5d;
+  border: none;
+}
+.btn-secondary:focus{
+  background-color: #cfcfcf;
+  color: #5d5d5d;
+  border: none;
+}
