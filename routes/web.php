@@ -34,4 +34,41 @@ Route::group(['middleware' => 'auth:penduduk'], function () {
 Route::group(['middleware' => 'auth:admin'], function () {
     Auth::routes();
     Route::get('/admin', 'DashboardAdminController@index');
+
+    //Keluarga
+    Route::get('/admin/keluarga','Admin\KeluargaController@index');
+    Route::get('/admin/keluarga/view/{id}','Admin\KeluargaController@view');
+    Route::post('/admin/keluarga/store','Admin\KeluargaController@store');
+    Route::get('/admin/keluarga/edit/{id}','Admin\KeluargaController@edit');
+    Route::post('/admin/keluarga/update/{id}','Admin\KeluargaController@update');
+    Route::get('/admin/keluarga/destroy/{id}','Admin\KeluargaController@destroy');
+    
+    //Keperluan
+    Route::get('/admin/keperluan','Admin\KeperluanController@index');
+    Route::post('/admin/keperluan/store','Admin\KeperluanController@store');
+    Route::get('/admin/keperluan/edit/{id}','Admin\KeperluanController@edit');
+    Route::post('/admin/keperluan/update/{id}','Admin\KeperluanController@update');
+    Route::get('/admin/keperluan/destroy/{id}','Admin\KeperluanController@destroy');
+
+    //Alsan
+    Route::get('/admin/alasan','Admin\AlasanController@index');
+    Route::post('/admin/alasan/store','Admin\AlasanController@store');
+    Route::get('/admin/alasan/edit/{id}','Admin\AlasanController@edit');
+    Route::post('/admin/alasan/update/{id}','Admin\AlasanController@update');
+    Route::get('/admin/alasan/destroy/{id}','Admin\AlasanController@destroy');
+
+    //Kategori Aspirasi
+    Route::get('/admin/kategori-aspirasi','Admin\KategoriAspirasiController@index');
+    Route::post('/admin/kategori-aspirasi/store','Admin\KategoriAspirasiController@store');
+    Route::get('/admin/kategori-aspirasi/edit/{id}','Admin\KategoriAspirasiController@edit');
+    Route::post('/admin/kategori-aspirasi/update/{id}','Admin\KategoriAspirasiController@update');
+    Route::get('/admin/kategori-aspirasi/destroy/{id}','Admin\KategoriAspirasiController@destroy');
+
+    //Pengumuman
+    Route::get('/admin/pengumuman','Admin\PengumumanController@index');
+    Route::get('/admin/pengumuman/create','Admin\PengumumanController@create');
+    Route::post('/admin/pengumuman/store','Admin\PengumumanController@store');
+    Route::get('/admin/pengumuman/edit/{id}','Admin\PengumumanController@edit');
+    Route::post('/admin/pengumuman/update/{id}','Admin\PengumumanController@update');
+    Route::get('/admin/pengumuman/destroy/{id}','Admin\PengumumanController@destroy');
 });

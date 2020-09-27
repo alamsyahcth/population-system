@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Models\Admin;
-use App\Model\Penduduk;
+use App\Models\Penduduk;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -97,7 +97,7 @@ class RegisterController extends Controller
         return view('auth.register-penduduk');
     }
 
-    protected function createBlogger(Request $request) {
+    protected function createPenduduk(Request $request) {
         $rules = $this->validate($request,[
             'no_kk' => 'required',
             'nik' => ['required','email', 'max:255', 'unique:penduduks'],
@@ -118,9 +118,23 @@ class RegisterController extends Controller
         ]);
 
         if($rules) {
-            Blogger::create([
+            Penduduk::create([
+                'no_kk' => $request->no_kk,
+                'nik' => $request->nik,
                 'name' => $request->name,
-                'email' => $request->email,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tempat_lahir' => $request->tempat_lahir,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'agama' => $request->agama,
+                'pendidikan' => $request->pendidikan,
+                'pekerjaan' => $request->pekerjaan,
+                'status_perkawinan' => $request->status_perkawinan,
+                'status_dalam_keluarga' => $request->status_dalam_keluarga,
+                'kewarganegaraan' => $request->kewarganegaraan,
+                'nama_ayah' => $request->nama_ayah,
+                'nama_ibu' => $request->nama_ibu,
+                'alamat' => $request->alamat,
+                'status' => '1',
                 'password' => Hash::make($request->password),
             ]);
             return redirect('login/penduduk');

@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('administrator/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{asset('administrator/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('administrator/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{asset('administrator/plugins/summernote/summernote-bs4.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('administrator/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{asset('administrator/app.css')}}">
@@ -34,10 +39,8 @@
           {{ Auth::user()->name }}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">Selamat Datang {{ Auth::user()->name }}</span>
-          <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-            <i class="fas fa-sign-out"></i>
+            <i class="fas fa-sign-out-alt"></i>
             Keluar
           </a>
         </div>
@@ -64,7 +67,7 @@
           
           <!--Dashboard-->
           <li class="nav-item mt-3">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin') }}" class="nav-link">
               <i class="fas fa-tachometer-alt mr-3"></i>
               <p>
                 Dashboard
@@ -75,7 +78,7 @@
           <!--Data Penduduk-->
           <div class="nav-header ml-2">Data Penduduk</div>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-user mr-3"></i>
               <p>
                 Penduduk Tetap
@@ -83,7 +86,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="far fa-user mr-3"></i>
               <p>
                 Penduduk Sementara
@@ -91,7 +94,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/keluarga') }}" class="nav-link">
               <i class="fas fa-users mr-3"></i>
               <p>
                 Data Keluarga
@@ -103,7 +106,7 @@
           <!--Pelayanan-->
           <div class="nav-header">Pelayanan</div>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-file-alt mr-3"></i>
               <p>
                 Surat Pengantar
@@ -111,7 +114,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-sign-in-alt mr-3"></i>
               <p>
                 Penduduk Masuk
@@ -119,7 +122,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-sign-out-alt mr-3"></i>
               <p>
                 Penduduk Keluar
@@ -127,7 +130,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-baby mr-3"></i>
               <p>
                 Kelahiran Penduduk
@@ -135,7 +138,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-book-dead mr-3"></i>
               <p>
                 Kematian Penduduk
@@ -143,7 +146,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-headset mr-3"></i>
               <p>
                 Data Aspirasi
@@ -154,7 +157,7 @@
           <!--Pelayanan-->
           <div class="nav-header">Laporan</div>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Pelayanan
@@ -162,7 +165,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Penduduk Masuk
@@ -170,7 +173,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Penduduk Keluar
@@ -178,7 +181,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Kelahiran Penduduk
@@ -186,7 +189,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Kematian Penduduk
@@ -194,7 +197,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Data Aspirasi
@@ -204,7 +207,7 @@
 
           <div class="nav-header">Data Master</div>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/pengumuman') }}" class="nav-link">
               <i class="fas fa-info mr-3"></i>
               <p>
                 Buat Pengumuman
@@ -212,23 +215,23 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/keperluan') }}" class="nav-link">
               <i class="fas fa-info mr-3"></i>
               <p>
-                Data Kategori Pelayanan
+                Data Keperluan
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/alasan') }}" class="nav-link">
               <i class="fas fa-info mr-3"></i>
               <p>
-                Alasan Penduduk Sementara
+                Alasan Sementara
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ url('admin/kategori-aspirasi') }}" class="nav-link">
               <i class="fas fa-info mr-3"></i>
               <p>
                 Kategori Aspirasi
@@ -303,9 +306,40 @@
 <script src="{{asset('administrator/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('administrator/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('administrator/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('administrator/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('administrator/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<!-- Summernote -->
+<script src="{{asset('administrator/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('administrator/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('administrator/dist/js/demo.js')}}"></script>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+
+  $(".alert").delay(2000).slideUp(200, function() {
+    $(this).alert('close');
+  });
+
+  $(function () {
+    $('.textarea').summernote()
+  })
+</script>
 </body>
 </html>

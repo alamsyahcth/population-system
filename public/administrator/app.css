@@ -25,3 +25,9 @@
   color: #5d5d5d;
   border: none;
 }
+input{
+  border: 1px #a2a2a2 solid !important;
+}
+textarea{
+  border: 1px #a2a2a2 solid !important;
+}
