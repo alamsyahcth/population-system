@@ -9,7 +9,7 @@
                     Login
                 </h1>
                 <div class="card-body">
-                    <form method="POST" action="{{ url('/login/admin') }}">
+                    <form method="POST" action="{{ url('/login/penduduk') }}">
                         @csrf
 
                         <div class="form-group">

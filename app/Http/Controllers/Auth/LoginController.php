@@ -26,7 +26,7 @@ class LoginController extends Controller{
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -62,14 +62,15 @@ class LoginController extends Controller{
 
     public function pendudukLogin(Request $request) {
         $this->validate($request, [
-            'nik'   => 'required|nik',
+            'nik'   => 'required',
             'password' => 'required|min:8'
         ]);
 
-        if (Auth::guard('penduduk')->attempt(['nik' => $request->nik, 'password' => $request->password], $request->get('remember'))) {
+        if (Auth::guard('penduduk')->attempt(['nik' => $request->nik, 'password' => $request->password, 'status' => '1'], $request->get('remember'))) {
 
-            return redirect()->intended('/penduduk');
+            return redirect()->intended('penduduk');
         }
         return back()->withInput($request->only('nik', 'remember'));
     }
+
 }

@@ -83,6 +83,10 @@ thead th{
   border-radius: 0 !important;
   box-shadow: none !important;
 }
+select{
+  outline: none !important;
+  color: #414141 !important;
+}
 ::-webkit-input-placeholder { /* Edge */
   color: #e4e4e4 !important;
 }

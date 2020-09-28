@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('user/assets/vendors/jquery-bar-rating/css-stars.css')}}" />
     <link rel="stylesheet" href="{{asset('user/fontawesome-free/css/all.css')}}" />
     <link rel="stylesheet" href="{{asset('user/assets/vendors/font-awesome/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -192,6 +193,7 @@
     <script src="{{asset('user/assets/vendors/flot/jquery.flot.categories.js')}}"></script>
     <script src="{{asset('user/assets/vendors/flot/jquery.flot.fillbetween.js')}}"></script>
     <script src="{{asset('user/assets/vendors/flot/jquery.flot.stack.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
     <script src="{{asset('user/assets/js/off-canvas.js')}}"></script>
@@ -203,5 +205,10 @@
     <!-- Custom js for this page -->
     <script src="{{asset('user/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+    <script>
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+        });
+    </script>
 </body>
 </html>

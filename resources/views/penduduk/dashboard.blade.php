@@ -1,9 +1,9 @@
-@extends('user/layouts/app')
+@extends('penduduk/layouts/app')
 @section('title','Dashboard')
 @section('content')
 <div class="row">
   <div class="col-md-12">
-    <h1><span style="color: #707070">Selamat Datang</span> John Doe</h1>
+    <h1><span style="color: #707070">Selamat Datang</span> {{ Auth::user()->name }}</h1>
     <h5>Berikut history data pelayanan anda</h5>
   </div>
   <div class="col-md-12 col-sm-12 mt-4">

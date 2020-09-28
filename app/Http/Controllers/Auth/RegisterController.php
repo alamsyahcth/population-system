@@ -100,7 +100,7 @@ class RegisterController extends Controller
     protected function createPenduduk(Request $request) {
         $rules = $this->validate($request,[
             'no_kk' => 'required',
-            'nik' => ['required','email', 'max:255', 'unique:penduduks'],
+            'nik' => ['required', 'max:255', 'unique:penduduks'],
             'name' => 'required',
             'jenis_kelamin' => 'required',
             'tempat_lahir' => 'required',
@@ -135,6 +135,7 @@ class RegisterController extends Controller
                 'nama_ibu' => $request->nama_ibu,
                 'alamat' => $request->alamat,
                 'status' => '1',
+                'status_penduduk' => 'Aktif',
                 'password' => Hash::make($request->password),
             ]);
             return redirect('login/penduduk');

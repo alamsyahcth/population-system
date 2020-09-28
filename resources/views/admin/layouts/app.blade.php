@@ -238,6 +238,16 @@
               </p>
             </a>
           </li>
+
+          <div class="nav-header">Management Administrator</div>
+          <li class="nav-item">
+            <a href="{{ url('admin/administrator') }}" class="nav-link">
+              <i class="fas fa-user mr-3"></i>
+              <p>
+                Kelola Administrator
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

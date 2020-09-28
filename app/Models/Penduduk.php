@@ -29,6 +29,7 @@ class Penduduk extends Authenticatable
         'nama_ibu',
         'alamat',
         'status',
+        'status_penduduk',
         'password',
     ];
 
