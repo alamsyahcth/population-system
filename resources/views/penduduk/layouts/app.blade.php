@@ -20,6 +20,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('user/assets/css/demo_2/style.css')}}" />
     <link rel="stylesheet" href="{{asset('user/app.css')}}"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('user/assets/images/favicon.png')}}" />
@@ -73,7 +74,7 @@
             <div class="container">
               <ul class="nav page-navigation">
                 <li class="nav-item">
-                  <a class="nav-link nav-link-active" href="index.html">
+                  <a class="nav-link @if (Request::is('penduduk')) nav-link-active  @endif" href="{{ url('penduduk') }}">
                     <i class="mdi mdi-view-grid menu-icon"></i>
                     <span class="menu-title">Dashboard</span>
                   </a>
@@ -85,7 +86,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/icons/mdi.html">
+                  <a class="nav-link @if (Request::is('penduduk/penduduk-masuk')) nav-link-active  @endif" href="{{ url('penduduk/penduduk-masuk') }}">
                     <i class="fas fa-file-alt menu-icon"></i>
                     <span class="menu-title">Penduduk Masuk</span>
                   </a>
@@ -178,9 +179,21 @@
     <script src="{{asset('user/assets/js/misc.js')}}"></script>
     <script src="{{asset('user/assets/js/settings.js')}}"></script>
     <script src="{{asset('user/assets/js/todolist.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{asset('user/assets/js/dashboard.js')}}"></script>
     <!-- End custom js for this page -->
+    <script>
+      $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+          'allowClear': true
+        });
+      });
+      
+      $(".alert").delay(2000).slideUp(200, function() {
+        $(this).alert('close');
+      });
+    </script>
   </body>
 </html>

@@ -114,7 +114,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/penduduk-masuk') }}" class="nav-link">
               <i class="fas fa-sign-in-alt mr-3"></i>
               <p>
                 Penduduk Masuk
@@ -332,14 +332,9 @@
       "responsive": true,
       "autoWidth": false,
     });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
+    $("#example2").DataTable({
       "responsive": true,
+      "autoWidth": false,
     });
   });
 

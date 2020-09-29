@@ -34,11 +34,19 @@ Route::group(['middleware' => 'auth:penduduk'], function () {
         return redirect('/login/penduduk');
     });
     Route::get('/penduduk', 'Penduduk\DashboardPendudukController@index');
+
+    //Penduduk Masuk
+    Route::get('/penduduk/penduduk-masuk','Penduduk\PendudukMasukController@index');
+    Route::post('/penduduk/penduduk-masuk/penduduk-tetap','Penduduk\PendudukMasukController@create_penduduk_tetap');
+    Route::post('/penduduk/penduduk-masuk/penduduk-sementara','Penduduk\PendudukMasukController@create_penduduk_sementara');
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
     Auth::routes();
     Route::get('/admin', 'DashboardAdminController@index');
+
+    //Penduduk Masuk
+    Route::get('/admin/penduduk-masuk','Admin\PendudukMasukController@index');
 
     //Admin
     Route::get('/admin/administrator','Admin\AdministratorController@index');
