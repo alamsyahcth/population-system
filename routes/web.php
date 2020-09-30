@@ -47,6 +47,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
     //Penduduk Masuk
     Route::get('/admin/penduduk-masuk','Admin\PendudukMasukController@index');
+    Route::get('/admin/penduduk-masuk/{id}', 'Admin\PendudukMasukController@show_data_penduduk');
+    Route::get('/admin/penduduk-masuk/terima/{id}', 'Admin\PendudukMasukController@terima');
+    Route::get('/admin/penduduk-masuk/tolak/{id}', 'Admin\PendudukMasukController@tolak');
 
     //Admin
     Route::get('/admin/administrator','Admin\AdministratorController@index');
