@@ -80,7 +80,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/forms/basic_elements.html">
+                  <a class="nav-link @if (Request::is('penduduk/pelayanan')) nav-link-active  @endif" href="{{ url('penduduk/pelayanan') }}">
                     <i class="fas fa-file-alt menu-icon"></i>
                     <span class="menu-title">Surat Pengantar</span>
                   </a>
@@ -98,7 +98,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/tables/basic-table.html">
+                  <a class="nav-link @if (Request::is('penduduk/kelahiran-penduduk')) nav-link-active  @endif" href="{{ url('penduduk/kelahiran-penduduk') }}">
                     <i class="fas fa-file-alt menu-icon"></i>
                     <span class="menu-title">Laporan Kelahiran</span>
                   </a>
@@ -110,7 +110,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/tables/basic-table.html">
+                  <a class="nav-link @if (Request::is('penduduk/aspirasi')) nav-link-active  @endif" href="{{ url('penduduk/aspirasi') }}">
                     <i class="fas fa-file-alt menu-icon" style="font-size:14px;"></i>
                     <span class="menu-title">Aspirasi Anda</span>
                   </a>

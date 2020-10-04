@@ -2,6 +2,7 @@
 @section('title','Data Keluarga')
 @section('content')
 <section>
+  <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
@@ -25,14 +26,17 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <?php $i=1; ?>
+                  @foreach($anggota as $a)
                   <tr>
-                    <td>1</td>
-                    <td>123456789</td>
-                    <td>Linda Islami</td>
+                    <td>{{ $i++ }}</td>
+                    <td>{{ $a->nik }}</td>
+                    <td>{{ $a->name }}</td>
                     <td>
-                      <a href="#" class="btn btn-info"><i class="fas fa-pen-square"></i></a>
+                      <a href="{{ url('admin/penduduk-tetap/edit/'.$a->id_penduduk) }}" class="btn btn-info"><i class="fas fa-pen-square"></i></a>
                     </td>
                   </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>

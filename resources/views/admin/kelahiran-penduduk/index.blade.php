@@ -1,5 +1,5 @@
 @extends('admin/layouts/app')
-@section('title','Penduduk Masuk')
+@section('title','Kelahiran Penduduk')
 @section('content')
 <section>
   @include('admin/layouts/alert')
@@ -21,8 +21,7 @@
                 <thead>
                   <tr>
                     <th width="10%">No</th>
-                    <th width=30%>NIK</th>
-                    <th width="50">Nama</th>
+                    <th width="80">Nama</th>
                     <th width="10%">Lihat</th>
                   </tr>
                 </thead>
@@ -31,10 +30,9 @@
                   @foreach($wait as $w)
                   <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{ $w->nik }}</td>
                     <td>{{ $w->name }}</td>
                     <td>
-                      <a href="{{ url('admin/penduduk-masuk/'.$w->id_penduduk_selected) }}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                      <a href="{{ url('admin/kelahiran-penduduk/'.$w->id_penduduk_selected) }}" class="btn btn-success"><i class="fas fa-eye"></i></a>
                     </td>
                   </tr>
                   @endforeach
@@ -258,7 +256,9 @@
                       <p>:</p>
                     </div>
                     <div class="col-md-8">
-                      <p>{{ $tetap->nik }}</p>
+                      <p class="text-danger">
+                        {{ $tetap->nik }}
+                      </p>
                     </div>
                   </div>
 
@@ -469,8 +469,8 @@
                       <p>Berdasarkan data diatas dan dokumen sebagai bukti pelaporan pihak pengurus RT.003 RW.003 Kelurahan Sawah Baru menyatakan bahwa pelapor:</p>
                     </div>
                     <div class="col-md-12">
-                      <a href="{{ url('admin/penduduk-masuk/terima/'.$tetap->id_penduduk) }}" class="btn btn-success">Terima & Cetak</a>
-                      <a href="{{ url('admin/penduduk-masuk/tolak/'.$tetap->id_penduduk) }}" class="btn btn-danger">Tolak</a>
+                      <a href="{{ url('admin/kelahiran-penduduk/terima/'.$tetap->id_penduduk) }}" class="btn btn-success">Terima & Cetak</a>
+                      <a href="{{ url('admin/kelahiran-penduduk/tolak/'.$tetap->id_penduduk) }}" class="btn btn-danger">Tolak</a>
                     </div>
                   </div>
 
@@ -489,7 +489,7 @@
                       <p>:</p>
                     </div>
                     <div class="col-md-8">
-                      <p>{{ $sementara->no_kk_penduduk_sementara }}</p>
+                      <p class="text-danger">{{ $sementara->no_kk }}</p>
                     </div>
                   </div>
 
@@ -501,7 +501,7 @@
                       <p>:</p>
                     </div>
                     <div class="col-md-8">
-                      <p>{{ $sementara->nik }}</p>
+                      <p class="text-danger">{{ $sementara->nik }}</p>
                     </div>
                   </div>
 
@@ -712,8 +712,8 @@
                       <p>Berdasarkan data diatas dan dokumen sebagai bukti pelaporan pihak pengurus RT.003 RW.003 Kelurahan Sawah Baru menyatakan bahwa pelapor:</p>
                     </div>
                     <div class="col-md-12">
-                      <a href="{{ url('admin/penduduk-masuk/terima/'.$sementara->id_penduduk) }}" class="btn btn-success">Terima & Cetak</a>
-                      <a href="{{ url('admin/penduduk-masuk/tolak/'.$sementara->id_penduduk) }}" class="btn btn-danger">Tolak</a>
+                      <a href="{{ url('admin/kelahiran-penduduk/terima/'.$sementara->id_penduduk) }}" class="btn btn-success">Terima & Cetak</a>
+                      <a href="{{ url('admin/kelahiran-penduduk/tolak/'.$sementara->id_penduduk) }}" class="btn btn-danger">Tolak</a>
                     </div>
                   </div>
                 @else 

@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="{{asset('administrator/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
   <!-- summernote -->
   <link rel="stylesheet" href="{{asset('administrator/plugins/summernote/summernote-bs4.css') }}">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('administrator/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('administrator/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('administrator/dist/css/adminlte.min.css')}}">
   <link rel="stylesheet" href="{{asset('administrator/app.css')}}">
@@ -78,7 +81,7 @@
           <!--Data Penduduk-->
           <div class="nav-header ml-2">Data Penduduk</div>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/penduduk-tetap') }}" class="nav-link">
               <i class="fas fa-user mr-3"></i>
               <p>
                 Penduduk Tetap
@@ -86,7 +89,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/penduduk-sementara') }}" class="nav-link">
               <i class="far fa-user mr-3"></i>
               <p>
                 Penduduk Sementara
@@ -130,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/kelahiran-penduduk') }}" class="nav-link">
               <i class="fas fa-baby mr-3"></i>
               <p>
                 Kelahiran Penduduk
@@ -146,7 +149,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/aspirasi') }}" class="nav-link">
               <i class="fas fa-headset mr-3"></i>
               <p>
                 Data Aspirasi
@@ -322,6 +325,8 @@
 <script src="{{asset('administrator/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <!-- Summernote -->
 <script src="{{asset('administrator/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- Select 2 -->
+<script src="{{asset('administrator/plugins/select2/js/select2.full.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('administrator/dist/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
@@ -337,6 +342,8 @@
       "autoWidth": false,
     });
   });
+
+  $('.select2').select2();
 
   $(".alert").delay(2000).slideUp(200, function() {
     $(this).alert('close');

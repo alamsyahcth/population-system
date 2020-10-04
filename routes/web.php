@@ -35,21 +35,64 @@ Route::group(['middleware' => 'auth:penduduk'], function () {
     });
     Route::get('/penduduk', 'Penduduk\DashboardPendudukController@index');
 
+    //Pelayanan
+    Route::get('/penduduk/pelayanan','Penduduk\PelayananController@index');
+    Route::post('/penduduk/pelayanan/add', 'Penduduk\PelayananController@add');
+    Route::get('/penduduk/pelayanan/remove/{id}', 'Penduduk\PelayananController@remove');
+    Route::get('/penduduk/pelayanan/remove-all', 'Penduduk\PelayananController@remove_all');
+    Route::get('/penduduk/pelayanan/save', 'Penduduk\PelayananController@save');
+
     //Penduduk Masuk
     Route::get('/penduduk/penduduk-masuk','Penduduk\PendudukMasukController@index');
     Route::post('/penduduk/penduduk-masuk/penduduk-tetap','Penduduk\PendudukMasukController@create_penduduk_tetap');
     Route::post('/penduduk/penduduk-masuk/penduduk-sementara','Penduduk\PendudukMasukController@create_penduduk_sementara');
+
+    //Kelahiran
+    Route::get('/penduduk/kelahiran-penduduk','Penduduk\KelahiranPendudukController@index');
+    Route::post('/penduduk/kelahiran-penduduk/penduduk-tetap','Penduduk\KelahiranPendudukController@create_penduduk_tetap');
+    Route::post('/penduduk/kelahiran-penduduk/penduduk-sementara','Penduduk\KelahiranPendudukController@create_penduduk_sementara');
+
+    //Aspirasi
+    Route::get('/penduduk/aspirasi','Penduduk\AspirasiController@index');
+    Route::post('/penduduk/aspirasi/store','Penduduk\AspirasiController@store');
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
     Auth::routes();
     Route::get('/admin', 'DashboardAdminController@index');
 
+    //Pelayanan
+    Route::get('/admin/pelayanan','Admin\PelayananController@index');
+    Route::get('/admin/pelayanan/{id}','Admin\PelayananController@show');
+
     //Penduduk Masuk
     Route::get('/admin/penduduk-masuk','Admin\PendudukMasukController@index');
     Route::get('/admin/penduduk-masuk/{id}', 'Admin\PendudukMasukController@show_data_penduduk');
     Route::get('/admin/penduduk-masuk/terima/{id}', 'Admin\PendudukMasukController@terima');
     Route::get('/admin/penduduk-masuk/tolak/{id}', 'Admin\PendudukMasukController@tolak');
+    Route::get('/admin/penduduk-masuk/print/{id}', 'Admin\PendudukMasukController@print');
+
+    //Kelahiran Penduduk
+    Route::get('/admin/kelahiran-penduduk','Admin\KelahiranPendudukController@index');
+    Route::get('/admin/kelahiran-penduduk/{id}', 'Admin\KelahiranPendudukController@show_data_penduduk');
+    Route::get('/admin/kelahiran-penduduk/terima/{id}', 'Admin\KelahiranPendudukController@terima');
+    Route::get('/admin/kelahiran-penduduk/tolak/{id}', 'Admin\KelahiranPendudukController@tolak');
+    Route::get('/admin/kelahiran-penduduk/print/{id}', 'Admin\KelahiranPendudukController@print');
+
+    //Aspirasi
+    Route::get('/admin/aspirasi','Admin\AspirasiController@index');
+    Route::post('/admin/aspirasi/reply','Admin\AspirasiController@reply');
+    Route::get('/admin/aspirasi/tolak/{id}','Admin\AspirasiController@tolak');
+
+    //PendudukTetap
+    Route::get('/admin/penduduk-tetap','Admin\PendudukTetapController@index');
+    Route::get('/admin/penduduk-tetap/edit/{id}','Admin\PendudukTetapController@edit');
+    Route::post('/admin/penduduk-tetap/update/{id}','Admin\PendudukTetapController@update');
+
+    //PendudukSementara
+    Route::get('/admin/penduduk-sementara','Admin\PendudukSementaraController@index');
+    Route::get('/admin/penduduk-sementara/edit/{id}','Admin\PendudukSementaraController@edit');
+    Route::post('/admin/penduduk-sementara/update/{id}','Admin\PendudukSementaraController@update');
 
     //Admin
     Route::get('/admin/administrator','Admin\AdministratorController@index');

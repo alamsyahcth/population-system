@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Keluarga;
+use App\Models\Penduduk;
+use App\Models\PendudukTetap;
 
 class KeluargaController extends Controller {
     public function index() {
@@ -31,7 +33,11 @@ class KeluargaController extends Controller {
 
     public function view($id) {
         $selected = Keluarga::where('id',$id)->first();
-         return view('admin.keluarga.view', compact(['selected']));
+        $anggota = PendudukTetap::join('penduduks','penduduks.id','=','penduduk_tetaps.id_penduduk')
+                    ->join('keluargas','keluargas.id','=','penduduk_tetaps.id_keluarga')
+                    ->where('penduduk_tetaps.id_keluarga',$id)
+                    ->get();
+        return view('admin.keluarga.view', compact(['selected','anggota']));
     }
 
     public function edit($id) {
