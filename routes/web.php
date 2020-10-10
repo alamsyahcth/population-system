@@ -47,10 +47,18 @@ Route::group(['middleware' => 'auth:penduduk'], function () {
     Route::post('/penduduk/penduduk-masuk/penduduk-tetap','Penduduk\PendudukMasukController@create_penduduk_tetap');
     Route::post('/penduduk/penduduk-masuk/penduduk-sementara','Penduduk\PendudukMasukController@create_penduduk_sementara');
 
+    //Penduduk Keluar
+    Route::get('/penduduk/penduduk-keluar','Penduduk\PendudukKeluarController@index');
+    Route::post('/penduduk/penduduk-keluar/create','Penduduk\PendudukKeluarController@create');
+
     //Kelahiran
     Route::get('/penduduk/kelahiran-penduduk','Penduduk\KelahiranPendudukController@index');
     Route::post('/penduduk/kelahiran-penduduk/penduduk-tetap','Penduduk\KelahiranPendudukController@create_penduduk_tetap');
     Route::post('/penduduk/kelahiran-penduduk/penduduk-sementara','Penduduk\KelahiranPendudukController@create_penduduk_sementara');
+
+    //Kematian
+    Route::get('/penduduk/kematian-penduduk','Penduduk\KematianPendudukController@index');
+    Route::post('/penduduk/kematian-penduduk/create','Penduduk\KematianPendudukController@create');
 
     //Aspirasi
     Route::get('/penduduk/aspirasi','Penduduk\AspirasiController@index');
@@ -64,6 +72,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //Pelayanan
     Route::get('/admin/pelayanan','Admin\PelayananController@index');
     Route::get('/admin/pelayanan/{id}','Admin\PelayananController@show');
+    Route::get('/admin/pelayanan/terima/{id}','Admin\PelayananController@terima');
+    Route::get('/admin/pelayanan/tolak/{id}','Admin\PelayananController@tolak');
+    Route::get('/admin/pelayanan/cetak/{id}','Admin\PelayananController@cetak');
 
     //Penduduk Masuk
     Route::get('/admin/penduduk-masuk','Admin\PendudukMasukController@index');
@@ -72,12 +83,26 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/penduduk-masuk/tolak/{id}', 'Admin\PendudukMasukController@tolak');
     Route::get('/admin/penduduk-masuk/print/{id}', 'Admin\PendudukMasukController@print');
 
+    //Penduduk Keluar
+    Route::get('/admin/penduduk-keluar','Admin\PendudukKeluarController@index');
+    Route::get('/admin/penduduk-keluar/{id}','Admin\PendudukKeluarController@show');
+    Route::get('/admin/penduduk-keluar/terima/{id}','Admin\PendudukKeluarController@terima');
+    Route::get('/admin/penduduk-keluar/tolak/{id}','Admin\PendudukKeluarController@tolak');
+    Route::get('/admin/penduduk-keluar/cetak/{id}','Admin\PendudukKeluarController@cetak');
+
     //Kelahiran Penduduk
     Route::get('/admin/kelahiran-penduduk','Admin\KelahiranPendudukController@index');
     Route::get('/admin/kelahiran-penduduk/{id}', 'Admin\KelahiranPendudukController@show_data_penduduk');
     Route::get('/admin/kelahiran-penduduk/terima/{id}', 'Admin\KelahiranPendudukController@terima');
     Route::get('/admin/kelahiran-penduduk/tolak/{id}', 'Admin\KelahiranPendudukController@tolak');
     Route::get('/admin/kelahiran-penduduk/print/{id}', 'Admin\KelahiranPendudukController@print');
+
+    //Kematian Penduduk
+    Route::get('/admin/kematian-penduduk','Admin\KematianPendudukController@index');
+    Route::get('/admin/kematian-penduduk/{id}','Admin\KematianPendudukController@show');
+    Route::get('/admin/kematian-penduduk/terima/{id}','Admin\KematianPendudukController@terima');
+    Route::get('/admin/kematian-penduduk/tolak/{id}','Admin\KematianPendudukController@tolak');
+    Route::get('/admin/kematian-penduduk/cetak/{id}','Admin\KematianPendudukController@cetak');
 
     //Aspirasi
     Route::get('/admin/aspirasi','Admin\AspirasiController@index');

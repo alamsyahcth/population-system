@@ -4,76 +4,28 @@ namespace App\Http\Controllers\Penduduk;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Pelayanan;
+use App\Models\Penduduk;
+use App\Models\DetailPelayanan;
+use App\Models\Keperluan;
+use Auth;
 
 class DashboardPendudukController extends Controller {
    
     public function index() {
-        return view('penduduk.dashboard');
+        $pelayanan = Pelayanan::join('detail_pelayanans','detail_pelayanans.id_pelayanan','=','pelayanans.id')
+                ->join('penduduks','penduduks.id','=','detail_pelayanans.id_penduduk')
+                ->join('keperluans','keperluans.id','=','detail_pelayanans.id_keperluan')
+                ->where('penduduks.id','=',Auth::user()->id)
+                ->select('pelayanans.id','penduduks.name','pelayanans.no_sp','pelayanans.status as status_pelayanan')
+                ->groupBy('pelayanans.id','penduduks.nik');
+        $keperluan = Pelayanan::join('detail_pelayanans','detail_pelayanans.id_pelayanan','=','pelayanans.id')
+                ->join('keperluans','keperluans.id','=','detail_pelayanans.id_keperluan')
+                ->select('*', 'detail_pelayanans.keterangan as detail_pelayanan_keterangan')
+                ->get();
+        $data = $pelayanan->get();
+        $count = $pelayanan->count();
+        return view('penduduk.dashboard', compact(['data','count','keperluan']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

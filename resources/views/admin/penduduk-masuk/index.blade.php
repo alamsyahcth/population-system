@@ -703,7 +703,11 @@
                       <p>:</p>
                     </div>
                     <div class="col-md-8">
-                      <p>{{ $sementara->alasan }}</p>
+                      @foreach ($alasan as $alasans)
+                          @if($alasans->id == $sementara->id_sementara)
+                            <p>{{ $alasans->nama_alasan }}</p>
+                          @endif  
+                      @endforeach
                     </div>
                   </div>
 
@@ -752,10 +756,10 @@
                         <span class="badge badge-success">Aktif</span>
                       @endif
                       @if($c->status == '3')
-                        <span class="badge badge-warning">Meninggal</span>
+                        <span class="badge badge-warning">Keluar</span>
                       @endif
                       @if($c->status == '4')
-                        <span class="badge badge-secondary">Keluar</span>
+                        <span class="badge badge-secondary">Meninggal</span>
                       @endif
                       @if($c->status == '5')
                         <span class="badge badge-secondary">Ditolak</span>

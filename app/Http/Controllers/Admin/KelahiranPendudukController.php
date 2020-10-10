@@ -59,8 +59,9 @@ class KelahiranPendudukController extends Controller {
                         ->select('*','penduduk_sementaras.no_kk as no_kk_penduduk_sementara')
                         ->where('kelahirans.id_penduduk', $id)
                         ->first();
+            $alasan = Alasan::get();
             $status = 3;
-            return view('admin.kelahiran-penduduk.index', compact(['sementara','status','wait','confirm']));
+            return view('admin.kelahiran-penduduk.index', compact(['sementara','status','wait','confirm','alasan']));
         } else {
             $status = 4;
             return view('admin.kelahiran-penduduk.index', compact(['status','wait','confirm']));

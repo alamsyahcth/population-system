@@ -1,5 +1,5 @@
 @extends('admin/layouts/app')
-@section('title','Pelayanan Surat Pengantar')
+@section('title','Kematian Penduduk')
 @section('content')
 <section>
   @include('admin/layouts/alert')
@@ -21,7 +21,7 @@
                 <thead>
                   <tr>
                     <th width="10%">No</th>
-                    <th width="20">No Surat Pengantar</th>
+                    <th width="20">NIK</th>
                     <th width="60">Nama</th>
                     <th width="10%">Lihat</th>
                   </tr>
@@ -31,10 +31,10 @@
                   @foreach($wait as $w)
                   <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{ $w->no_sp }}</td>
+                    <td>{{ $w->nik }}</td>
                     <td>{{ $w->name }}</td>
                     <td>
-                      <a href="{{ url('admin/pelayanan/'.$w->id) }}" class="btn btn-success"><i class="fas fa-eye"></i></a>
+                      <a href="{{ url('admin/kematian-penduduk/'.$w->id_penduduk) }}" class="btn btn-success"><i class="fas fa-eye"></i></a>
                     </td>
                   </tr>
                   @endforeach
@@ -48,19 +48,8 @@
             <div class="card-body">
               @if($status == 1)
                 <div class="row">
-                  <div class="col-md-12 text-center">
-                    <h5 class="mb-0">PEMERINTAH KOTA TANGERANG SELATAN</h5>
-                    <h5 class="mb-0">KECAMATAN CIPUTAT</h5>
-                    <h5 class="mb-0">KELURAHAN SAWAH BARU</h5>
-                    <h5 class="mb-0">RUKUN TETANGGA 003 RUKUN WARGA 003</h5>
-                    <hr>
-                  </div>
-                </div>
-
-                <div class="row mb-2">
-                  <div class="col-md-12 text-center">
-                    <h6 class="mb-1" style="font-weight: 700">SURAT PENGANTAR</h6>
-                    <H6 class="mb-0">No: ............................ </H6>
+                  <div class="col-md-12">
+                    <h6 style="font-weight: 700">A. Data Penduduk Meninggal</h6>
                   </div>
                 </div>
 
@@ -135,6 +124,89 @@
                     <p>:</p>
                   </div>
                 </div>
+
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <h6 style="font-weight: 700">B.Info Kematian</h6>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Tanggal Laporan</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Tanggal Kematian</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Waktu Kematian</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Lokasi Kematian</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Penyebab</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">NIK Pelapor</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Nama Pelapor</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                  </div>
+                </div>
                 
                 <div class="row mt-2">
                   <div class="col-md-12">
@@ -176,19 +248,8 @@
                 </div>
               @elseif($status == 2)
                 <div class="row">
-                  <div class="col-md-12 text-center">
-                    <h5 class="mb-0">PEMERINTAH KOTA TANGERANG SELATAN</h5>
-                    <h5 class="mb-0">KECAMATAN CIPUTAT</h5>
-                    <h5 class="mb-0">KELURAHAN SAWAH BARU</h5>
-                    <h5 class="mb-0">RUKUN TETANGGA 003 RUKUN WARGA 003</h5>
-                    <hr>
-                  </div>
-                </div>
-
-                <div class="row mb-2">
-                  <div class="col-md-12 text-center">
-                    <h6 class="mb-1" style="font-weight: 700">SURAT PENGANTAR</h6>
-                    <H6 class="mb-0">No: {{ $data->no_sp }} </H6>
+                  <div class="col-md-12">
+                    <h6 style="font-weight: 700">A. Data Penduduk Meninggal</h6>
                   </div>
                 </div>
 
@@ -280,22 +341,93 @@
                   </div>
                 </div>
 
+                <div class="row mt-4">
+                  <div class="col-md-12">
+                    <h6 style="font-weight: 700">B.Info Kematian</h6>
+                  </div>
+                </div>
+
                 <div class="row">
                   <div class="col-md-3">
-                    <p class="text-label">Keperluan</p>
+                    <p class="text-label">Tanggal Laporan</p>
                   </div>
                   <div class="col-md-1">
                     <p>:</p>
                   </div>
                   <div class="col-md-8">
-                    @foreach($keperluan as $k)
-                      <div class="row mb-1">
-                        <div class="col-md-12 bg-secondary p-1 rounded">
-                          <p style="font-weight: 700">{{ $k->nama_keperluan }}</p>
-                          <p>{{ $k->detail_pelayanan_keterangan }}</p>
-                        </div>
-                      </div>
-                    @endforeach
+                    <p>{{ $data->tgl_laporan }}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Tanggal Kematian</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ $data->tgl_kematian }}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Waktu Kematian</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ $data->waktu_kematian }}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Lokasi Kematian</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ $data->lokasi_kematian }}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Penyebab</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ $data->penyebab }}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">NIK Pelapor</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ $data->nik_pelapor }}</p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-3">
+                    <p class="text-label">Nama Pelapor</p>
+                  </div>
+                  <div class="col-md-1">
+                    <p>:</p>
+                  </div>
+                  <div class="col-md-8">
+                    <p>{{ $data->nama_pelapor }}</p>
                   </div>
                 </div>
                 
@@ -333,8 +465,8 @@
                     <p>Berdasarkan data diatas dan dokumen sebagai bukti pelaporan pihak pengurus RT.003 RW.003 Kelurahan Sawah Baru menyatakan bahwa pelapor:</p>
                   </div>
                   <div class="col-md-12">
-                    <a href="{{ url('admin/pelayanan/terima/'.$data->id_pelayanan) }}" class="btn btn-success">Terima & Cetak</a>
-                    <a href="{{ url('admin/pelayanan/tolak/'.$data->id_pelayanan) }}" class="btn btn-danger">Tolak</a>
+                    <a href="{{ url('admin/kematian-penduduk/terima/'.$data->id_penduduk) }}" class="btn btn-success">Terima & Cetak</a>
+                    <a href="{{ url('admin/kematian-penduduk/tolak/'.$data->id_penduduk) }}" class="btn btn-danger">Tolak</a>
                   </div>
                 </div>
               @endif
@@ -362,10 +494,10 @@
                   @foreach($confirm as $c)
                   <tr>
                     <td>{{ $i++ }}</td>
-                    <td>{{ $c->no_sp }}</td>
+                    <td>{{ $c->nik }}</td>
                     <td>{{ $c->name }}</td>
                     <td>
-                      <a href="{{ url('admin/pelayanan/cetak/'.$c->id_pelayanan) }}" class="btn btn-danger">PDF</a>
+                      <a href="{{ url('admin/kematian-penduduk/cetak/'.$c->id_penduduk) }}" class="btn btn-danger">PDF</a>
                     </td>
                   </tr>
                   @endforeach

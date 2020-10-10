@@ -53,7 +53,7 @@ class KelahiranPendudukController extends Controller {
             $data->nik = $request->nik;
             $data->name = $request->name;
             $data->jenis_kelamin = $request->jenis_kelamin;
-            $data->tempat_lahir = $request->tempat_lahir;
+            $data->tempat_lahir = $request->kota_lahir;
             $data->tanggal_lahir = $request->tanggal_lahir;
             $data->agama = $request->agama;
             $data->pendidikan = $request->pendidikan;

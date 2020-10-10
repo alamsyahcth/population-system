@@ -40,37 +40,61 @@
     <h4 style="font-weight: 400;">KOTA TANGERANG SELATAN</h4>
     <p style="font-size: 18px; color: #686868">Jalan Raya No.7 Tangerang Selatan</p>
     <hr><br>
-    <h3 style="font-weight: 700; margin-top: 20px;"><u>SURAT KETERANGAN</u></h3>
-    <h4 style="font-weight: 400; margin-top: 20px;">Nomor : 000{{ $sementara->id }}/Kelahiran/<?php echo date("d/m/Y") ?></h4><br><br>
+    <h3 style="font-weight: 700; margin-top: 20px;"><u>BERITA KEMATIAN</u></h3>
+  <h4 style="font-weight: 400; margin-top: 20px;">Nomor : 000{{ $data->id_kematian }}/Kematian/<?php echo date("d/m/Y") ?></h4><br><br>
   </div>
-    <table style="margin-left: 50px;">
+    <table style="margin-left: 50px; margin-top:40px;">
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
         <td colspan="3">
-          <h6>A. Data Penduduk Baru</h6>
+          <h6>A. Data Penduduk Meninggal</h6>
         </td>
       </tr>
 
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
+        <td style="padding-right:30px;">
           <p class="text-label">Nama</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          <p>{{ $sementara->name }}</p>
+          <p>{{ $data->name }}</p>
         </td>
       </tr>
 
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
+        <td style="padding-right:30px;">
+          <p class="text-label">Tempat Lahir</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->tempat_lahir }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Tanggal Lahir</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->tanggal_lahir }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
           <p class="text-label">Jenis Kelamin</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          @if($sementara->jenis_kelamin == 'L')
+          @if($data->jenis_kelamin == 'L')
             <p>Laki-laki</p>
           @else
             <p>Perempuan</p>
@@ -78,137 +102,108 @@
         </div>
       </div>
 
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Tempat Lahir</p>
+       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Pekerjaan</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          <p>{{ $sementara->tempat_lahir }}</p>
+          <p>{{ $data->pekerjaan }}</p>
         </td>
       </tr>
 
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Tanggal Lahir</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->tanggal_lahir }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Agama</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->agama }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Pendidikan</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->pendidikan }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Status Perkawinan</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->status_perkawinan }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Status Keluarga</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->status_dalam_keluarga }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Kewarganegaraan</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->kewarganegaraan }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Nama Ayah</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->nama_ayah }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Nama Ibu</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $sementara->nama_ibu }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
+        <td style="padding-right:30px;">
           <p class="text-label">Alamat</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          <p>{{ $sementara->alamat }}</p>
+          <p>{{ $data->alamat }}</p>
         </td>
       </tr>
 
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Status</p>
+        <td colspan="3">
+          <h6>B. Data Laporan</h6>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Tanggal Kematian</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          <p class="text-secondary">sementara</p>
+          <p>{{ $data->tgl_kematian }}</p>
         </td>
       </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Waktu Kematian</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->waktu_kematian }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Lokasi Kematian</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->lokasi_kematian }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Penyebab Kematian</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->penyebab }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">NIK Pelapor</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->nik_pelapor }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Nama Pelapor</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->nama_pelapor }}</p>
+        </td>
+      </tr>
+      
       <tr colspan="3"><td></td></tr>
       <tr colspan="3"><td></td></tr>
       <tr colspan="3"><td></td></tr>
@@ -219,7 +214,7 @@
       <table width="100%" style="margin-left: 100px;">
         <tr style="padding-top: -20px;  height:300px; min-height:300px;">
           <td class="text-center">
-            <p>Ketua RW</p>
+            <p style="line-height: 30px;">Ketua RW</p>
           </td>
           <td class="text-center">
             <p>Tangerang Selatan, {{ date("d/m/Y") }}</p>

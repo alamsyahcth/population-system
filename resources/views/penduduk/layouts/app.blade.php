@@ -92,7 +92,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/charts/chartjs.html">
+                  <a class="nav-link @if (Request::is('penduduk/penduduk-keluar')) nav-link-active  @endif" href="{{ url('penduduk/penduduk-keluar') }}">
                     <i class="fas fa-file-alt menu-icon"></i>
                     <span class="menu-title">Penduduk Keluar</span>
                   </a>
@@ -104,7 +104,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="pages/tables/basic-table.html">
+                  <a class="nav-link @if (Request::is('penduduk/kematian-penduduk')) nav-link-active  @endif" href="{{ url('penduduk/kematian-penduduk') }}">
                     <i class="fas fa-file-alt menu-icon"></i>
                     <span class="menu-title">Laporan Kematian</span>
                   </a>

@@ -452,18 +452,6 @@
                     </div>
                   </div>
 
-                  <div class="row">
-                    <div class="col-md-3">
-                      <p class="text-label">Alasan</p>
-                    </div>
-                    <div class="col-md-1">
-                      <p>:</p>
-                    </div>
-                    <div class="col-md-8">
-                      <p>{{ $tetap->alasan }}</p>
-                    </div>
-                  </div>
-
                   <div class="row mt-4">
                     <div class="col-md-12 bg-secondary p-2 mb-3" style="border-radius: 10px;">
                       <p>Berdasarkan data diatas dan dokumen sebagai bukti pelaporan pihak pengurus RT.003 RW.003 Kelurahan Sawah Baru menyatakan bahwa pelapor:</p>
@@ -703,7 +691,11 @@
                       <p>:</p>
                     </div>
                     <div class="col-md-8">
-                      <p>{{ $sementara->alasan }}</p>
+                      @foreach ($alasan as $alasans)
+                          @if($alasans->id == $sementara->id_sementara)
+                            <p>{{ $alasans->nama_alasan }}</p>
+                          @endif  
+                      @endforeach
                     </div>
                   </div>
 
@@ -752,10 +744,10 @@
                         <span class="badge badge-success">Aktif</span>
                       @endif
                       @if($c->status == '3')
-                        <span class="badge badge-warning">Meninggal</span>
+                        <span class="badge badge-warning">Keluar</span>
                       @endif
                       @if($c->status == '4')
-                        <span class="badge badge-secondary">Keluar</span>
+                        <span class="badge badge-secondary">Meninggal</span>
                       @endif
                       @if($c->status == '5')
                         <span class="badge badge-secondary">Ditolak</span>

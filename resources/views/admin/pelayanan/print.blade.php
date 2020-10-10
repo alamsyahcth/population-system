@@ -22,7 +22,7 @@
       padding: 0px;
     }
     p{
-      font-size: 12px;
+      font-size: 18px;
     }
     tr{
       height: 5px !important;
@@ -40,37 +40,56 @@
     <h4 style="font-weight: 400;">KOTA TANGERANG SELATAN</h4>
     <p style="font-size: 18px; color: #686868">Jalan Raya No.7 Tangerang Selatan</p>
     <hr><br>
-    <h3 style="font-weight: 700; margin-top: 20px;"><u>SURAT KETERANGAN</u></h3>
-    <h4 style="font-weight: 400; margin-top: 20px;">Nomor : 000{{ $tetap->id }}/Kelahiran/<?php echo date("d/m/Y") ?></h4><br><br>
+    <h3 style="font-weight: 700; margin-top: 20px;"><u>SURAT PENGANTAR</u></h3>
+  <h4 style="font-weight: 400; margin-top: 20px;">Nomor : {{ $data->no_sp }}</h4><br><br>
   </div>
-    <table style="margin-left: 50px;">
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td colspan="3">
-          <h6>A. Data Penduduk Baru</h6>
-        </td>
-      </tr>
+    <table style="margin-left: 50px; margin-top:40px;">
 
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
+        <td style="padding-right:30px;">
           <p class="text-label">Nama</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          <p>{{ $tetap->name }}</p>
+          <p>{{ $data->name }}</p>
         </td>
       </tr>
 
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
+        <td style="padding-right:30px;">
+          <p class="text-label">Tempat Lahir</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->tempat_lahir }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Tanggal Lahir</p>
+        </td>
+        <td>
+          <p>:</p>
+        </td>
+        <td>
+          <p>{{ $data->tanggal_lahir }}</p>
+        </td>
+      </tr>
+
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
           <p class="text-label">Jenis Kelamin</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          @if($tetap->jenis_kelamin == 'L')
+          @if($data->jenis_kelamin == 'L')
             <p>Laki-laki</p>
           @else
             <p>Perempuan</p>
@@ -78,137 +97,48 @@
         </div>
       </div>
 
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Tempat Lahir</p>
+       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;">
+          <p class="text-label">Pekerjaan</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          <p>{{ $tetap->tempat_lahir }}</p>
+          <p>{{ $data->pekerjaan }}</p>
         </td>
       </tr>
 
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Tanggal Lahir</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->tanggal_lahir }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Agama</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->agama }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Pendidikan</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->pendidikan }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Status Perkawinan</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->status_perkawinan }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Status Keluarga</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->status_dalam_keluarga }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Kewarganegaraan</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->kewarganegaraan }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Nama Ayah</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->nama_ayah }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Nama Ibu</p>
-        </td>
-        <td>
-          <p>:</p>
-        </td>
-        <td>
-          <p>{{ $tetap->nama_ibu }}</p>
-        </td>
-      </tr>
-
-      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
+        <td style="padding-right:30px;">
           <p class="text-label">Alamat</p>
         </td>
         <td>
           <p>:</p>
         </td>
         <td>
-          <p>{{ $tetap->alamat }}</p>
+          <p>{{ $data->alamat }}</p>
         </td>
       </tr>
-
       <tr style="padding-top: -20px;  height:300px; min-height:300px;">
-        <td width="30%">
-          <p class="text-label">Status</p>
+        <td style="padding-right:30px;">
+          <p class="text-label" style="align-items: flex-start;">Keperluan</p>
         </td>
         <td>
           <p>:</p>
         </td>
+      </tr>
+      @foreach($keperluan as $k)
+      <tr style="padding-top: -20px;  height:300px; min-height:300px;">
+        <td style="padding-right:30px;"></td>
+        <td></td>
         <td>
-          <p class="text-secondary">tetap</p>
+          <p style="font-weight: 700; margin-top:10px">{{ $k->nama_keperluan }}</p>
+          <p style="margin-bottom: 30px;">{{ $k->detail_pelayanan_keterangan }}</p>
         </td>
       </tr>
+      @endforeach
+
       <tr colspan="3"><td></td></tr>
       <tr colspan="3"><td></td></tr>
       <tr colspan="3"><td></td></tr>
@@ -219,7 +149,7 @@
       <table width="100%" style="margin-left: 100px;">
         <tr style="padding-top: -20px;  height:300px; min-height:300px;">
           <td class="text-center">
-            <p>Ketua RW</p>
+            <p style="line-height: 30px;">Ketua RW</p>
           </td>
           <td class="text-center">
             <p>Tangerang Selatan, {{ date("d/m/Y") }}</p>

@@ -19,7 +19,7 @@ class PendudukMasukController extends Controller {
                 ->where('status','2')
                 ->select('*','masuks.id_penduduk as id_penduduk_selected')
                 ->get();
-        // 1=Menunggu, 2=Aktif, 3=Pindah
+        // 1=Aktif, 2=Menunggu, 3=Pindah, 4=Meninggal, 5=Ditolak
         $confirm = Penduduk::join('masuks','masuks.id_penduduk','=','penduduks.id')
                     ->where('status','1')->orWhere('status','3')->orWhere('status','4')
                     ->get();
@@ -59,8 +59,9 @@ class PendudukMasukController extends Controller {
                         ->select('*','penduduk_sementaras.no_kk as no_kk_penduduk_sementara')
                         ->where('masuks.id_penduduk', $id)
                         ->first();
+            $alasan = Alasan::get();
             $status = 3;
-            return view('admin.penduduk-masuk.index', compact(['sementara','status','wait','confirm']));
+            return view('admin.penduduk-masuk.index', compact(['sementara','status','wait','confirm','alasan']));
         } else {
             $status = 4;
             return view('admin.penduduk-masuk.index', compact(['status','wait','confirm']));

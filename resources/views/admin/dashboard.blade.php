@@ -6,79 +6,79 @@
     <div class="col-lg-4 col-6">
       <div class="small-box bg-info">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $pelayanan }}</h3>
 
           <p>Jumlah Pelayanan</p>
         </div>
         <div class="icon">
           <i class="fas fa-file-alt"></i>
         </div>
-        <a href="#" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
+        <a href="{{ url('admin/pelayanan') }}" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-6">
       <div class="small-box bg-success">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $masuk }}</h3>
 
           <p>Data Penduduk Masuk</p>
         </div>
         <div class="icon">
           <i class="fas fa-sign-in-alt"></i>
         </div>
-        <a href="#" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
+        <a href="{{ url('admin/penduduk-masuk') }}" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-6">
       <div class="small-box bg-danger">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $keluar }}</h3>
 
           <p>Data Penduduk Keluar</p>
         </div>
         <div class="icon">
           <i class="fas fa-sign-out-alt"></i>
         </div>
-        <a href="#" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
+        <a href="{{ url('admin/penduduk-keluar') }}" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-6">
       <div class="small-box bg-warning">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $kelahiran }}</h3>
 
           <p>Data Kelahiran Penduduk</p>
         </div>
         <div class="icon">
           <i class="fas fa-baby"></i>
         </div>
-        <a href="#" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
+        <a href="{{ url('admin/kelahiran-penduduk') }}" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-6">
       <div class="small-box bg-danger">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $kematian }}</h3>
 
           <p>Data Kematian Penduduk</p>
         </div>
         <div class="icon">
           <i class="fas fa-book-dead"></i>
         </div>
-        <a href="#" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
+        <a href="{{ url('admin/kematian-penduduk') }}" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
       </div>
     </div>
     <div class="col-lg-4 col-6">
       <div class="small-box bg-primary">
         <div class="inner">
-          <h3>150</h3>
+          <h3>{{ $aspirasi }}</h3>
 
           <p>Data Aspirasi</p>
         </div>
         <div class="icon">
           <i class="fas fa-headset"></i>
         </div>
-        <a href="#" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
+        <a href="{{ url('admin/aspirasi') }}" class="small-box-footer">Tampil Data <i class="fas fa-arrow-right ml-2"></i></a>
       </div>
     </div>
   </div>
@@ -90,48 +90,30 @@
         <div class="card-body row">
           <div class="col-md-12 d-flex justify-content-between">
             <h4>Data Aspirasi Terbaru</h4>
-            <a href="#" class="btn btn-secondary">
+            <a href="{{ url('admin/aspirasi') }}" class="btn btn-secondary">
               Tampil Data <i class="fas fa-arrow-right ml-2"></i>
             </a>
           </div>
         </div>
         <div class="card-body">
-          <table class="table" width="100%">
-            <thead>
-              <tr>
-                <th width="10%">No</th>
-                <th width="30%">Dari</th>
-                <th width="60%">Isi Aspirasi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Ahmad Rialdy</td>
-                <td>Got Mampet di Jalan Kenangan</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Gunawan Fahmi</td>
-                <td>Jalan Sudirman Rusak</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Linda Sukma</td>
-                <td>Adakan acara ramah tamah</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Luna Agustina</td>
-                <td>Sering berisik sampai malam di Jalan Kenangan I</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Dika Setiawan</td>
-                <td>Tidak adanya pengamanan pada malam hari Gg.Persatuan</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="timeline">
+            @foreach($data_aspirasi as $d)
+            <div>
+              <i class="fas fa-envelope bg-blue"></i>
+              <div class="timeline-item">
+                <h3 class="timeline-header">
+                  <span class="text-primary" href="#">{{ $d->name }} </span> {{ $d->name_aspirasi }}
+                  @if($d->status_aspirasi == 1)<div class="badge badge-primary ml-3">Belum Dilihat</div>@endif
+                  @if($d->status_aspirasi == 2)<div class="badge badge-success ml-3">Diterima</div>@endif
+                  @if($d->status_aspirasi == 3)<div class="badge badge-danger ml-3">Ditolak</div>@endif
+                </h3>
+
+                <div class="timeline-body py-3">
+                  {{ $d->isi }}
+                </div>
+              </div>
+            </div>
+            @endforeach
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 @extends('admin/layouts/app')
-@section('title','Penduduk Tetap')
+@section('title','Penduduk Sementara')
 @section('content')
 <section>
   @include('admin/layouts/alert')

@@ -125,7 +125,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/penduduk-keluar') }}" class="nav-link">
               <i class="fas fa-sign-out-alt mr-3"></i>
               <p>
                 Penduduk Keluar
@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/kematian-penduduk') }}" class="nav-link">
               <i class="fas fa-book-dead mr-3"></i>
               <p>
                 Kematian Penduduk

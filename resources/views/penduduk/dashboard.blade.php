@@ -8,24 +8,39 @@
   </div>
   <div class="col-md-12 col-sm-12 mt-4">
     <div class="card p-3">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th>Tanggal</th>
-            <th>Jenis Layanan</th>
-            <th>Status</th>
-            <th>Detail</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>5 Juni 2020</td>
-            <td>Buat Surat Pengantar</td>
-            <td><div class="badge badge-sm bg-success">Sudah Dikonfirmasi</div></td>
-            <td><a href="#" class="btn btn-outline-primary btn-rounded">View</a></td>
-          </tr>
-        </tbody>
-      </table>
+      <ul class="timeline pr-5">
+          @if($count != 0)
+            @foreach($data as $d)
+            <li class="pb-3">
+              <h6 class="mb-3">
+                <span class="mr-3">{{ $d->no_sp }}</span>
+                <span>{{ $d->tanggal }}</span>
+                @if($d->status_pelayanan== 1)<div class="badge badge-secondary">Belum Dilaporkan</div>@endif
+                @if($d->status_pelayanan== 2)<div class="badge badge-success">Diterima</div>@endif
+                @if($d->status_pelayanan== 3)<div class="badge badge-danger">Ditolak</div>@endif
+              </h6>
+              <?php $i = 1; ?>
+              @foreach($keperluan as $k)
+                @if($k->no_sp == $d->no_sp)
+                  <div class="row mb-1">
+                    <div class="col-md-12 bg-light p-2 rounded d-flex">
+                      <p class="mr-2 mt-1">{{ $i++ }}</p class="mr-2">
+                      <div>
+                        <p class="my-1" style="font-weight: 700">{{ $k->nama_keperluan }}</p>
+                        <p class="my-1">{{ $k->detail_pelayanan_keterangan }}</p>
+                      </div>
+                    </div>
+                  </div>
+                @endif
+              @endforeach
+            </li>
+            @endforeach
+          @else 
+            <li>
+              <h6 class="text-secondary">Belum Ada Data Pelayanan</h6>
+            </li>
+          @endif
+        </ul>
     </div>
   </div>
 </div>
