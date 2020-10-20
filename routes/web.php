@@ -63,6 +63,10 @@ Route::group(['middleware' => 'auth:penduduk'], function () {
     //Aspirasi
     Route::get('/penduduk/aspirasi','Penduduk\AspirasiController@index');
     Route::post('/penduduk/aspirasi/store','Penduduk\AspirasiController@store');
+
+    //Edit Data
+    Route::get('/penduduk/edit-data','Penduduk\TempPendudukController@index');
+    Route::post('/penduduk/edit-data/store','Penduduk\TempPendudukController@store');
 });
 
 Route::group(['middleware' => 'auth:admin'], function () {
@@ -103,6 +107,12 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/kematian-penduduk/terima/{id}','Admin\KematianPendudukController@terima');
     Route::get('/admin/kematian-penduduk/tolak/{id}','Admin\KematianPendudukController@tolak');
     Route::get('/admin/kematian-penduduk/cetak/{id}','Admin\KematianPendudukController@cetak');
+
+    //Perubahan Data
+    Route::get('/admin/edit-data','Admin\TempPendudukController@index');
+    Route::get('/admin/edit-data/{id}','Admin\TempPendudukController@show');
+    Route::get('/admin/edit-data/terima/{id}','Admin\TempPendudukController@terima');
+    Route::get('/admin/edit-data/tolak/{id}','Admin\TempPendudukController@tolak');
 
     //Aspirasi
     Route::get('/admin/aspirasi','Admin\AspirasiController@index');
@@ -163,4 +173,13 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/pengumuman/edit/{id}','Admin\PengumumanController@edit');
     Route::post('/admin/pengumuman/update/{id}','Admin\PengumumanController@update');
     Route::get('/admin/pengumuman/destroy/{id}','Admin\PengumumanController@destroy');
+
+    //laporan
+    Route::get('admin/laporan-pelayanan','Admin\LaporanController@laporan_pelayanan');
+    Route::get('admin/laporan-penduduk-masuk','Admin\LaporanController@laporan_penduduk_masuk');
+    Route::get('admin/laporan-penduduk-keluar','Admin\LaporanController@laporan_penduduk_keluar');
+    Route::get('admin/laporan-kelahiran-penduduk','Admin\LaporanController@laporan_kelahiran_penduduk');
+    Route::get('admin/laporan-kematian-penduduk','Admin\LaporanController@laporan_kematian_penduduk');
+    Route::get('admin/laporan-data-aspirasi','Admin\LaporanController@laporan_data_aspirasi');
+    Route::post('admin/laporan/get-laporan','Admin\LaporanController@get_laporan');
 });

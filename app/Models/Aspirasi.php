@@ -14,6 +14,7 @@ class Aspirasi extends Model
         'id_penduduk',
         'id_kategori_aspirasi',
         'isi',
+        'phone',
         'status',
     ];
 }

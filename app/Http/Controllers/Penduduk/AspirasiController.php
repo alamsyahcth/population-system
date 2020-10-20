@@ -29,6 +29,7 @@ class AspirasiController extends Controller {
     public function store(Request $request) {
         $rules = $this->validate($request,[
             'id_kategori_aspirasi' => 'required',
+            'phone' => 'required',
             'isi' => 'required'
         ]);
 
@@ -37,6 +38,7 @@ class AspirasiController extends Controller {
             $data->id_penduduk = Auth::user()->id;
             $data->id_kategori_aspirasi = $request->id_kategori_aspirasi;
             $data->isi = $request->isi;
+            $data->phone = $request->phone;
             $data->status = '1';
 
             if($data->save()) {

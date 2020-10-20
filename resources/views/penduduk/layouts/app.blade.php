@@ -58,6 +58,9 @@
                     </div>
                   </a>
                   <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="{{ url('penduduk/edit-data') }}">
+                      <i class="mdi mdi-account mr-2 text-primary"></i> Edit Data
+                    </a>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                       <i class="mdi mdi-logout mr-2 text-primary"></i> Keluar
                     </a>

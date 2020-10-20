@@ -13,7 +13,7 @@
               <i class="fas fa-envelope bg-blue"></i>
               <div class="timeline-item">
                 <h3 class="timeline-header">
-                  <span class="text-primary" href="#">{{ $a->name }} </span> {{ $a->name_aspirasi }}
+                  <span class="text-primary" href="#">{{ $a->name }} - {{ $a->phone }} </span> {{ $a->name_aspirasi }}
                   @if($a->status_aspirasi == 2)<div class="badge badge-success ml-3">Diterima</div>@endif
                   @if($a->status_aspirasi == 3)<div class="badge badge-danger ml-3">Ditolak</div>@endif
                 </h3>

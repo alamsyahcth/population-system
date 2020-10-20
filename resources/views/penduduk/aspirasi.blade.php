@@ -17,17 +17,26 @@
               <div class="form">
                 <div class="form-group">
                   <label for="id_kategori_aspirasi" class="col-form-label mb-0 pl-0 pb-2">Kategori Aspirasi</label>
-                    <select id="id_kategori_aspirasi" class="form-control @error('id_kategori_aspirasi') is-invalid @enderror" name="id_kategori_aspirasi" value="{{ old('id_kategori_aspirasi') }}" required autocomplete="id_kategori_aspirasi" autofocus>
-                      <option disabled selected>Pilih Kategori Aspirasi</option>
-                      @foreach($kategori as $k)
-                        <option value="{{ $k->id }}">{{ $k->name_aspirasi }}</option>
-                      @endforeach
-                    </select>
-                    @error('id_kategori_aspirasi')
-                      <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                      </span>
-                    @enderror
+                  <select id="id_kategori_aspirasi" class="form-control @error('id_kategori_aspirasi') is-invalid @enderror" name="id_kategori_aspirasi" value="{{ old('id_kategori_aspirasi') }}" required autocomplete="id_kategori_aspirasi" autofocus>
+                    <option disabled selected>Pilih Kategori Aspirasi</option>
+                    @foreach($kategori as $k)
+                      <option value="{{ $k->id }}">{{ $k->name_aspirasi }}</option>
+                    @endforeach
+                  </select>
+                  @error('id_kategori_aspirasi')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+                <div class="form-group p-2">
+                  <label for="phone" class="col-form-label mb-0 pl-0 pb-0">Nomor Handphone</label>
+                  <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" height="400" autofocus>
+                  @error('phone')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
                 <div class="form-group p-2">
                   <label for="isi" class="col-form-label mb-0 pl-0 pb-0">Isi Aspirasi</label>

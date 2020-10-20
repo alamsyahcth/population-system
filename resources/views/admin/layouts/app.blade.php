@@ -149,6 +149,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ url('admin/edit-data') }}" class="nav-link">
+              <i class="fas fa-pencil-alt mr-3"></i>
+              <p>
+                Perubahan Data
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ url('admin/aspirasi') }}" class="nav-link">
               <i class="fas fa-headset mr-3"></i>
               <p>
@@ -160,7 +168,7 @@
           <!--Pelayanan-->
           <div class="nav-header">Laporan</div>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/laporan-pelayanan') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Pelayanan
@@ -168,7 +176,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/laporan-penduduk-masuk') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Penduduk Masuk
@@ -176,7 +184,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/laporan-penduduk-keluar') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Penduduk Keluar
@@ -184,7 +192,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/laporan-kelahiran-penduduk') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Kelahiran Penduduk
@@ -192,7 +200,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/laporan-kematian-penduduk') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Kematian Penduduk
@@ -200,7 +208,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ url('admin/pelayanan') }}" class="nav-link">
+            <a href="{{ url('admin/laporan-data-aspirasi') }}" class="nav-link">
               <i class="fas fa-book-open mr-3"></i>
               <p>
                 Lap Data Aspirasi
