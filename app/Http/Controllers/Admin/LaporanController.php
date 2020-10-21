@@ -4,6 +4,20 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Keperluan;
+use App\Models\Pelayanan;
+use App\Models\DetailPelayanan;
+use App\Models\Penduduk;
+use App\Models\Masuk;
+use App\Models\PendudukSementara;
+use App\Models\PendudukTetap;
+use App\Models\Keluarga;
+use App\Models\Alasan;
+use App\Models\Kelahiran;
+use App\Models\Aspirasi;
+use App\Models\KategoriAspirasi;
+use App\Models\BalasanAspirasi;
+use PDF;
 
 class LaporanController extends Controller {
 
@@ -40,26 +54,77 @@ class LaporanController extends Controller {
         if ($rules) {
             if($request->date_start < $request->date_end) {
                 if($request->sort == 'laporan_pelayanan') {
-                    echo 'laporan_pelayanan';
-                    $this->pdf($data, $url, $date_from, $date_to);
+                    $data = Pelayanan::join('detail_pelayanans','detail_pelayanans.id_pelayanan','=','pelayanans.id')
+                            ->join('penduduks','penduduks.id','=','detail_pelayanans.id_penduduk')
+                            ->join('keperluans','keperluans.id','=','detail_pelayanans.id_keperluan')
+                            ->where('pelayanans.status','=','2')
+                            ->where('pelayanans.created_at','>=',$request->date_start)
+                            ->where('pelayanans.created_at','<=',$request->date_end)
+                            ->select('pelayanans.id as id_pelayanan','penduduks.name','pelayanans.no_sp','pelayanans.tanggal')
+                            ->groupBy('pelayanans.id','penduduks.nik')
+                            ->get();
+                    $data_details = Pelayanan::join('detail_pelayanans','detail_pelayanans.id_pelayanan','=','pelayanans.id')
+                            ->join('keperluans','keperluans.id','=','detail_pelayanans.id_keperluan')
+                            ->select('*','detail_pelayanans.keterangan as keterangan_pelayanan')
+                            ->get();
+                    $data_details2 = '';
+                    $url = 'print-pelayanan';
+                    $date_from = $request->date_start;
+                    $date_to = $request->date_end;
+                    return $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else if($request->sort == 'laporan_penduduk_masuk') {
-                    echo 'laporan_penduduk_masuk';
-                    $this->pdf($data, $url, $date_from, $date_to);
+                    $data = Penduduk::join('masuks','masuks.id_penduduk','=','penduduks.id')
+                            ->where('masuks.created_at','>=',$request->date_start)
+                            ->where('masuks.created_at','<=',$request->date_end)
+                            ->get();
+                    $data_details = PendudukTetap::get();
+                    $data_details2 = PendudukSementara::get();
+                    $url = 'print-penduduk-masuk';
+                    $date_from = $request->date_start;
+                    $date_to = $request->date_end;
+                    return $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else if($request->sort == 'laporan_penduduk_keluar') {
-                    echo 'laporan_penduduk_keluar';
-                    $this->pdf($data, $url, $date_from, $date_to);
+                    $data = Penduduk::join('keluars','keluars.id_penduduk','=','penduduks.id')
+                            ->where('keluars.status','2')
+                            ->where('keluars.created_at','>=',$request->date_start)
+                            ->where('keluars.created_at','<=',$request->date_end)
+                            ->get();
+                    $data_details = PendudukTetap::get();
+                    $data_details2 = PendudukSementara::get();
+                    $url = 'print-penduduk-keluar';
+                    $date_from = $request->date_start;
+                    $date_to = $request->date_end;
+                    return $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else if($request->sort == 'laporan_kelahiran_penduduk') {
-                    echo 'laporan_kelahiran_penduduk';
-                    $this->pdf($data, $url, $date_from, $date_to);
+                    $data = Penduduk::join('kelahirans','kelahirans.id_penduduk','=','penduduks.id')
+                            ->where('kelahirans.created_at','>=',$request->date_start)
+                            ->where('kelahirans.created_at','<=',$request->date_end)
+                            ->get();
+                    $data_details = PendudukTetap::get();
+                    $data_details2 = PendudukSementara::get();
+                    $url = 'print-kelahiran-penduduk';
+                    $date_from = $request->date_start;
+                    $date_to = $request->date_end;
+                    return $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else if($request->sort == 'laporan_kematian_penduduk') {
                     echo 'laporan_kematian_penduduk';
-                    $this->pdf($data, $url, $date_from, $date_to);
+                    $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else if($request->sort == 'laporan_data_aspirasi') {
-                    echo 'laporan_data_aspirasi';
-                    $this->pdf($data, $url, $date_from, $date_to);
+                    $data = Aspirasi::join('penduduks','penduduks.id','=','aspirasis.id_penduduk')
+                            ->join('kategori_aspirasis','kategori_aspirasis.id','=','aspirasis.id_kategori_aspirasi')
+                            ->select('*','aspirasis.id as id_aspirasi','aspirasis.status as status_aspirasi')
+                            ->where('aspirasis.created_at','>=',$request->date_start)
+                            ->where('aspirasis.created_at','<=',$request->date_end)
+                            ->orderBy('aspirasis.id','desc')
+                            ->get();
+                    $data_details = '';
+                    $data_details2 = '';
+                    $url = 'print-aspirasi';
+                    $date_from = $request->date_start;
+                    $date_to = $request->date_end;
+                    return $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else {
                     echo 'data salah';
-                    $this->pdf($data, $url, $date_from, $date_to);
                 }
             } else {
                 return redirect()->back()->with('failed', 'Tanggal Awal Harus Lebih Kecil');
@@ -67,8 +132,8 @@ class LaporanController extends Controller {
         }
     }
 
-    public function pdf($data, $url, $date_from, $date_to) {
-        $pdf = PDF::loadView('admin.laporan.'.$url, compact(['data','date_from','date_to']));
+    public function pdf($data, $data_details, $data_details_2, $url, $date_from, $date_to) {
+        $pdf = PDF::loadView('admin.laporan.'.$url, compact(['data','data_details','data_details_2','date_from','date_to']))->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
 
