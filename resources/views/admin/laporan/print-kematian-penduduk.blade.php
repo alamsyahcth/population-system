@@ -32,10 +32,9 @@
 			border: 1px #9a9a9a solid;
       height: 20px;
       padding-top: 5px;
-      line-height: 12px;
 		}
 		tr th{
-			font-size: 14px;
+			font-size: 12px;
 			border: 1px #9a9a9a solid;
       height: 20px;
       padding-top: 5px;
@@ -49,7 +48,7 @@
     <h4 style="font-weight: 700;">KELURAHAN SAWAH BARU</h4>
     <h4 style="font-weight: 700;">RUKUN TETANGGA 003 RUKUN WARGA 003</h4>
     <hr><br>
-    <h3 style="font-weight: 700; margin-top: 20px;"><u>LAPORAN DATA PENDUDUK KELUAR</u></h3>
+    <h3 style="font-weight: 700; margin-top: 20px;"><u>LAPORAN KEMATIAN PENDUDUK</u></h3>
     <h4 style="font-weight: 400; margin-top: 20px;">Periode : {{ $date_from }} - {{ $date_to }}</h4><br><br>
   </div>
   <div style="margin-top: 20px;">
@@ -57,11 +56,12 @@
       <thead>
         <tr>
           <th class="text-center">No</th>
-          <th class="text-center">NIK</th>
-          <th class="text-center">Tanggal Keluar</th>
           <th class="text-center">Nama</th>
+          <th class="text-center">Tanggal Kematian</th>
+          <th class="text-center">Waktu Kematian</th>
+          <th class="text-center">Lokasi Kematian</th>
+          <th class="text-center">Penyebab Kematian</th>
           <th class="text-center">Pelapor</th>
-          <th class="text-center">Alasan</th>
           <th class="text-center">Status Penduduk</th>
         </tr>
       </thead>
@@ -70,11 +70,12 @@
         @foreach($data as $d)
         <tr>
           <td class="text-center">{{ $i++ }}</td>
-          <td class="text-center">{{ $d->nik }}</td>
-          <td class="text-center">{{ $d->tanggal_keluar }}</td>
           <td class="text-center">{{ $d->name }}</td>
+          <td class="text-center">{{ $d->tgl_kematian }}</td>
+          <td class="text-center">{{ $d->waktu_kematian }}</td>
+          <td class="text-center">{{ $d->lokasi_kematian }}</td>
+          <td class="text-center">{{ $d->penyebab }}</td>
           <td class="text-center">{{ $d->nama_pelapor }}</td>
-          <td class="text-center">{{ $d->alasan_keluar }}</td>
           <td class="text-center">
             @foreach($data_details as $b)
               @if($b->id_penduduk == $d->id_penduduk)

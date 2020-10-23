@@ -107,8 +107,17 @@ class LaporanController extends Controller {
                     $date_to = $request->date_end;
                     return $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else if($request->sort == 'laporan_kematian_penduduk') {
-                    echo 'laporan_kematian_penduduk';
-                    $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
+                    $data = Penduduk::join('kematians','kematians.id_penduduk','=','penduduks.id')
+                            ->where('kematians.status','2')
+                            ->where('kematians.created_at','>=',$request->date_start)
+                            ->where('kematians.created_at','<=',$request->date_end)
+                            ->get();
+                    $data_details = PendudukTetap::get();
+                    $data_details2 = PendudukSementara::get();
+                    $url = 'print-kematian-penduduk';
+                    $date_from = $request->date_start;
+                    $date_to = $request->date_end;
+                    return $this->pdf($data, $data_details, $data_details2, $url, $date_from, $date_to);
                 } else if($request->sort == 'laporan_data_aspirasi') {
                     $data = Aspirasi::join('penduduks','penduduks.id','=','aspirasis.id_penduduk')
                             ->join('kategori_aspirasis','kategori_aspirasis.id','=','aspirasis.id_kategori_aspirasi')

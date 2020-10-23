@@ -42,10 +42,10 @@
 </head>
 <body>
   <div class="text-center">
-    <h1 style="font-weight: 700;">RUKUN TETANGGA 003/003</h1>
-    <h4 style="font-weight: 400;">KELURAHAN SAWAH BARU KECAMATAN CIPUTAT</h4>
-    <h4 style="font-weight: 400;">KOTA TANGERANG SELATAN</h4>
-    <p style="font-size: 18px; color: #686868">Jalan Raya No.7 Tangerang Selatan</p>
+    <h1 style="font-weight: 700;">PEMERINTAH KOTA TANGERANG SELATAN</h1>
+    <h4 style="font-weight: 700;">KECAMATAN CIPUTAT</h4>
+    <h4 style="font-weight: 700;">KELURAHAN SAWAH BARU</h4>
+    <h4 style="font-weight: 700;">RUKUN TETANGGA 003 RUKUN WARGA 003</h4>
     <hr><br>
     <h3 style="font-weight: 700; margin-top: 20px;"><u>LAPORAN DATA PELAYANAN</u></h3>
     <h4 style="font-weight: 400; margin-top: 20px;">Periode : {{ $date_from }} - {{ $date_to }}</h4><br><br>

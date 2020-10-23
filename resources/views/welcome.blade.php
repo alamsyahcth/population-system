@@ -18,7 +18,7 @@
 	</div>
 </div>
 <div class="container mt-5">
-	<div class="row mb-4">
+	{{-- <div class="row mb-4">
 		<div class="col-md-12 text-center">
 			<h2 class="text-primary-2" style="font-weight: 700;">Berita Terbaru</h2>
 			<h6>Berita tentang RT.002 RW.02 Sawah Baru</h6>
@@ -36,6 +36,6 @@
 			</a>
 		</div>
 		<?php } ?>
-	</div>
+	</div> --}}
 </div>
 @endsection

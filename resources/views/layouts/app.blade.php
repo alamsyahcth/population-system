@@ -117,9 +117,9 @@
                                 <a class="btn btn-primary" href="{{ url('/login/penduduk')}}">  
                                     Masuk
                                 </a>
-                                <a class="btn btn-outline-primary ml-2" href="{{ url('/login/penduduk')}}">  
+                                {{-- <a class="btn btn-outline-primary ml-2" href="{{ url('/login/penduduk')}}">  
                                     Daftar
-                                </a>
+                                </a> --}}
                             </li>
                         </ul>
                         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
@@ -132,7 +132,7 @@
                 <div class="container">
                     <ul class="nav page-navigation">
                         <li class="nav-item">
-                            <a class="nav-link nav-link-active" href="{{ url('/login/penduduk')}}">
+                            <a class="nav-link" href="{{ url('/login/penduduk')}}">
                                 <i class="mdi mdi-view-grid menu-icon"></i>
                                 <span class="menu-title">Dashboard</span>
                             </a>

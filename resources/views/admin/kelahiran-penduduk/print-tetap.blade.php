@@ -35,10 +35,10 @@
 </head>
 <body>
   <div class="text-center">
-    <h1 style="font-weight: 700;">RUKUN TETANGGA 003/003</h1>
-    <h4 style="font-weight: 400;">KELURAHAN SAWAH BARU KECAMATAN CIPUTAT</h4>
-    <h4 style="font-weight: 400;">KOTA TANGERANG SELATAN</h4>
-    <p style="font-size: 18px; color: #686868">Jalan Raya No.7 Tangerang Selatan</p>
+    <h1 style="font-weight: 700;">PEMERINTAH KOTA TANGERANG SELATAN</h1>
+    <h4 style="font-weight: 700;">KECAMATAN CIPUTAT</h4>
+    <h4 style="font-weight: 700;">KELURAHAN SAWAH BARU</h4>
+    <h4 style="font-weight: 700;">RUKUN TETANGGA 003 RUKUN WARGA 003</h4>
     <hr><br>
     <h3 style="font-weight: 700; margin-top: 20px;"><u>SURAT KETERANGAN</u></h3>
     <h4 style="font-weight: 400; margin-top: 20px;">Nomor : 000{{ $tetap->id }}/Kelahiran/<?php echo date("d/m/Y") ?></h4><br><br>
@@ -233,10 +233,10 @@
         <tr colspan="2"><td></td></tr>
         <tr style="padding-top: -20px;  height:300px; min-height:300px;">
           <td class="text-center">
-            <p>John Doe</p>
+            <p>(TIDIN)</p>
           </td>
           <td class="text-center">
-            <p>Ahmad Jauhari</p>
+            <p>(SANDI)</p>
           </td>
         </tr>
       </table>
