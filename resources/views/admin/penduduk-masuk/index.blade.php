@@ -145,6 +145,18 @@
 
                   <div class="row">
                     <div class="col-md-3">
+                      <p class="text-label">Pekerjaan</p>
+                    </div>
+                    <div class="col-md-1">
+                      <p>:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p></p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-3">
                       <p class="text-label">Kewarganegaraan</p>
                     </div>
                     <div class="col-md-1">
@@ -359,6 +371,18 @@
                     </div>
                     <div class="col-md-8">
                       <p>{{ $tetap->status_dalam_keluarga }}</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-3">
+                      <p class="text-label">Pekerjaan</p>
+                    </div>
+                    <div class="col-md-1">
+                      <p>:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>{{ $tetap->pekerjaan }}</p>
                     </div>
                   </div>
 
@@ -602,6 +626,18 @@
                     </div>
                     <div class="col-md-8">
                       <p>{{ $sementara->status_dalam_keluarga }}</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-3">
+                      <p class="text-label">Pekerjaan</p>
+                    </div>
+                    <div class="col-md-1">
+                      <p>:</p>
+                    </div>
+                    <div class="col-md-8">
+                      <p>{{ $tetap->pekerjaan }}</p>
                     </div>
                   </div>
 
