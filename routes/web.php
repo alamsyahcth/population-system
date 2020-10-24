@@ -80,6 +80,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/pelayanan/tolak/{id}','Admin\PelayananController@tolak');
     Route::get('/admin/pelayanan/cetak/{id}','Admin\PelayananController@cetak');
 
+    //Penduduk
+    Route::get('/admin/penduduk','Admin\PendudukController@index');
+
     //Penduduk Masuk
     Route::get('/admin/penduduk-masuk','Admin\PendudukMasukController@index');
     Route::get('/admin/penduduk-masuk/{id}', 'Admin\PendudukMasukController@show_data_penduduk');

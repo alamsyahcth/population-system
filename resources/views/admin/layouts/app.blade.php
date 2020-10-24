@@ -81,6 +81,14 @@
           <!--Data Penduduk-->
           <div class="nav-header ml-2">Data Penduduk</div>
           <li class="nav-item">
+            <a href="{{ url('admin/penduduk') }}" class="nav-link">
+              <i class="fas fa-users mr-3"></i>
+              <p>
+                Semua Penduduk
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ url('admin/penduduk-tetap') }}" class="nav-link">
               <i class="fas fa-user mr-3"></i>
               <p>
